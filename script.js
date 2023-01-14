@@ -49,6 +49,36 @@ function addBookToLibrary(title, author, pages, isRead) {
   }
 }
 
+function createBookFromForm(e) {
+  e.preventDefault();
+  const form = e.target.parentElement;
+  const numFields = form.elements.length;
+  let newBookTitle = undefined;
+  let newBookAuthor = undefined;
+  let newBookPages = undefined;
+  let newBookIsRead = undefined;
+
+  for (let i = 0; i < numFields; i++) {
+    switch (form[i].id) {
+      case "newBookTitle":
+        newBookTitle = form[i].value;
+        break;
+      case "newBookAuthor":
+        newBookAuthor = form[i].value;
+        break;
+      case "newBookPages":
+        newBookPages = form[i].value;
+        break;
+      case "newBookIsRead":
+        newBookIsRead = form[i].checked;
+        break;
+    }
+  }
+
+  addBookToLibrary(newBookTitle, newBookAuthor, newBookPages, newBookIsRead);
+  modal.style.display = "none";
+}
+
 addBookToLibrary("Hi", "John Smith", 133, false);
 addBookToLibrary("Hello World", "Aidan Smith", 153, true);
 addBookToLibrary("Another Book", "Aidan Jones", 463, true);
@@ -56,6 +86,7 @@ addBookToLibrary("Another Book", "Aidan Jones", 463, true);
 const modal = document.getElementById("modalContainer");
 const openBookCreator = document.getElementById("openBookCreator");
 const modalCloseButton = document.getElementById("modalCloseButton");
+const submitCreateBookButton = document.getElementById("submitCreateBook");
 
 openBookCreator.addEventListener("click", () => {
   modal.style.display = "flex";
@@ -65,9 +96,10 @@ modalCloseButton.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
-
-window.onclick = function(event) {
-  if (event.target == modal) {
+window.addEventListener("click", (e) => {
+  if (e.target == modal) {
     modal.style.display = "none";
   }
-} 
+});
+
+submitCreateBookButton.addEventListener("click", createBookFromForm);
