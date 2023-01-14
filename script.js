@@ -33,6 +33,7 @@ function renderLibrary() {
 
     const bookCard = document.createElement("div");
     bookCard.classList = "bookCard";
+    bookCard.id = book.index;
     bookContainer.appendChild(bookCard);
 
     const titleDiv = document.createElement("div");
@@ -62,7 +63,13 @@ function renderLibrary() {
       isReadDiv.innerHTML = "<p>Not read yet</p>";
     }
     deleteButton.innerHTML =
-      '<p><span id="button" class="iconify" data-icon="mdi-close-thick" height="32px"></p>';
+      '<p id="button-' + book.index + '"><span class="iconify" data-icon="mdi-close-thick" height="32px"></p>';
+
+    deleteButton.addEventListener("click", (e) => {
+      const id = e.target.closest(".bookCard").id;
+      delete myLibrary[id];
+      renderLibrary();
+    })
   });
 }
 

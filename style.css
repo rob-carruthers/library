@@ -80,7 +80,7 @@ body {
     justify-self: flex-end;
 }
 
-.bookCard .deleteButton #button {
+.bookCard .deleteButton .iconify {
     color: red;
     cursor: pointer;
 }
