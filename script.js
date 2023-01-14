@@ -107,6 +107,12 @@ function createBookFromForm(e) {
 addBookToLibrary("Hi", "John Smith", 133, false);
 addBookToLibrary("Hello World", "Aidan Smith", 153, true);
 addBookToLibrary("Another Book", "Aidan Jones", 463, true);
+addBookToLibrary("Hi", "John Smith", 133, false);
+addBookToLibrary("Hello World", "Aidan Smith", 153, true);
+addBookToLibrary("Another Book", "Aidan Jones", 463, true);
+addBookToLibrary("Hi", "John Smith", 133, false);
+addBookToLibrary("Hello World", "Aidan Smith", 153, true);
+addBookToLibrary("Another Book", "Aidan Jones", 463, true);
 renderLibrary();
 
 const modal = document.getElementById("modalContainer");
