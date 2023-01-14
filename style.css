@@ -1,5 +1,43 @@
 body {
     background-color: antiquewhite;
+    margin: 0;
+}
+
+#modalContainer {
+    background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: none;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#bookCreatorForm {
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#bookCreatorForm .iconify {
+    justify-self: flex-end;
+    cursor: pointer;
+}
+
+#bookCreatorForm li {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+#bookCreatorTitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 #bookContainer {

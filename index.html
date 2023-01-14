@@ -6,11 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia+Sans">
+    <script src="//code.iconify.design/1/1.0.6/iconify.min.js"></script>
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
 </head>
 <body>
+    <div id="modalContainer">
+        <form name="bookCreatorForm" id="bookCreatorForm">
+            <div id="bookCreatorTitle">
+                <p>Create Book</p>
+                <p id="modalCloseButton"><span class="iconify" data-icon="mdi-close-thick" height="32px"></span></p>
+            </div>
+            <ul>
+                <li>
+                    <label for="newBookTitle">Title:</label>
+                    <input name="newBookTitle" id="newBookTitle">
+                </li>
+                <li>
+                    <label for="newBookAuthor">Author:</label>
+                    <input name="newBookAuthor" id="newBookAuthor">
+                </li>
+                <li>
+                    <label for="newBookPages">Pages:</label>
+                    <input name="newBookPages" id="newBookPages">
+                </li>
+                <li>
+                    <label for="newBookIsRead">Read?</label>
+                    <input name="newBookIsRead" id="newBookIsRead" type="checkbox" />
+                </li>
+            </ul>
+        </form>
+    </div>
     <div id="mainContainer">
+        <button id="openBookCreator">Create Book</button>
         <div id="bookContainer"></div>
     </div>
 </body>
