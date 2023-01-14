@@ -55,15 +55,33 @@ body {
     background-color: white;
     padding: 10px;
     box-shadow: 2px 2px 4px gray;
+    margin: 0;
+    justify-content: space-between;
+    flex: 1 0 100%;
 }
 
-.bookCard .title {
+.bookCard p {
+    margin: 0;
+    padding-top: 0;
+}
+
+.bookCard .title p {
     font-weight: bold;
     font-size: 1.4rem;
-    padding-bottom: 10px;
 }
 
-.bookCard .author {
+.bookCard .author p {
     font-size: 1.2em;
-    padding-bottom: 5px;
 }
+
+.bookCard .deleteButton {
+    margin-top: auto;
+    align-self: flex-end;
+    justify-self: flex-end;
+}
+
+.bookCard .deleteButton #button {
+    color: red;
+    cursor: pointer;
+}
+

@@ -17,6 +17,7 @@ class Book {
 function addBookToLibrary(title, author, pages, isRead) {
   const newBook = new Book(title, author, pages, isRead);
   myLibrary.push(newBook);
+  newBook.index = myLibrary.length - 1;
 
   const bookContainer = document.getElementById("bookContainer");
 
@@ -28,25 +29,29 @@ function addBookToLibrary(title, author, pages, isRead) {
   const authorDiv = document.createElement("div");
   const pagesDiv = document.createElement("div");
   const isReadDiv = document.createElement("div");
+  const deleteButton = document.createElement("div");
 
   titleDiv.classList = "title";
   authorDiv.classList = "author";
   pagesDiv.classList = "pages";
   isReadDiv.classList = "isRead";
+  deleteButton.classList = "deleteButton";
 
   bookCard.appendChild(titleDiv);
   bookCard.appendChild(authorDiv);
   bookCard.appendChild(pagesDiv);
   bookCard.appendChild(isReadDiv);
+  bookCard.appendChild(deleteButton)
 
-  titleDiv.textContent = newBook.title;
-  authorDiv.textContent = newBook.author;
-  pagesDiv.textContent = newBook.pages + " pages";
+  titleDiv.innerHTML = "<p>" + newBook.title + "</p>";
+  authorDiv.innerHTML = "<p>" + newBook.author + "</p>";
+  pagesDiv.innerHTML = "<p>" + newBook.pages + " pages</p>";
   if (newBook.isRead) {
-    isReadDiv.textContent = "Already read";
+    isReadDiv.innerHTML = "<p>Already read</p>";
   } else {
-    isReadDiv.textContent = "Not read yet";
+    isReadDiv.innerHTML = "<p>Not read yet</p>";
   }
+  deleteButton.innerHTML = '<p><span id="button" class="iconify" data-icon="mdi-close-thick" height="32px"></p>'
 }
 
 function createBookFromForm(e) {
