@@ -1,4 +1,5 @@
-let myLibrary = [];
+let myLibrary = {};
+let nextID = 0;
 
 class Book {
   constructor(
@@ -16,8 +17,9 @@ class Book {
 
 function addBookToLibrary(title, author, pages, isRead) {
   const newBook = new Book(title, author, pages, isRead);
-  myLibrary.push(newBook);
-  newBook.index = myLibrary.length - 1;
+  myLibrary[nextID] = newBook;
+  newBook.index = nextID;
+  nextID++;
 }
 
 function renderLibrary() {
@@ -26,7 +28,7 @@ function renderLibrary() {
     bookContainer.removeChild(bookContainer.firstChild);
   };
 
-  myLibrary.forEach((book) => {
+  Object.values(myLibrary).forEach((book) => {
     const bookContainer = document.getElementById("bookContainer");
 
     const bookCard = document.createElement("div");
