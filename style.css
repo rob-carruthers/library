@@ -1,6 +1,35 @@
 body {
-    background-color: antiquewhite;
+    background-color: #e2e8f0;
     margin: 0;
+    font-family: "Sofia Sans";
+}
+
+#mainContainer {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) 5fr;
+    height: 100vh;
+}
+
+#sidebar {
+    background-color: #475569;
+    color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    padding-top: 10px;
+    gap: 40px;
+}
+
+#sidebar #logo {
+    font-size: 2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+#sidebar #sidebarButtons {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
 
 #modalContainer {
@@ -41,10 +70,11 @@ body {
 }
 
 #bookContainer {
-    font-family: "Sofia Sans";
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));;
     gap: 10px;
+    overflow: scroll;
+    padding: 20px;
 }
 
 .bookCard {
