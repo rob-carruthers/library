@@ -12,10 +12,10 @@
 </head>
 <body>
     <div id="modalContainer">
-        <form name="bookCreatorForm" id="bookCreatorForm">
-            <div id="bookCreatorTitle">
+        <form name="bookCreatorForm" id="bookCreatorForm" class="modalDialog">
+            <div class="modalTitle">
                 <p class="titleText">Create Book</p>
-                <p id="modalCloseButton"><span class="iconify" data-icon="mdi-close-thick" height="32px"></span></p>
+                <p class="modalCloseButton"><span class="iconify" data-icon="mdi-close-thick" height="32px"></span></p>
             </div>
             <ul>
                 <li>
@@ -42,12 +42,21 @@
             </ul>
             <button id="submitCreateBook">Create</button>
         </form>
+        <div id="resetDialog" class="modalDialog">
+            <div class="modalTitle">
+                <p class="titleText">Remove All Books</p>
+                <p class="modalCloseButton"><span class="iconify" data-icon="mdi-close-thick" height="32px"></span></p>
+            </div>
+            <p>Are you sure?</p>
+            <p><button id="removeAllBooks">Yes</button><button class="modalCloseButton">Cancel</button></p>
+        </div>
     </div>
     <div id="mainContainer">
         <div id="sidebar">
             <div id="logo">My Library</div>
             <div id="sidebarButtons">
                 <button type="button" id="openBookCreator">Create Book</button>
+                <button type="button" id="resetBooksButton">Remove All Books</button>
             </div>
         </div>
         <div id="bookContainer"></div>

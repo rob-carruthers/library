@@ -127,6 +127,7 @@ function createBookFromForm(e) {
   if (validInput) {
     addBookToLibrary(newBookTitle, newBookAuthor, newBookPages, newBookIsRead);
     modal.style.display = "none";
+    bookCreatorForm.style.display = "none";
     renderLibrary();
   }
 }
@@ -143,22 +144,42 @@ addBookToLibrary("Another Book", "Aidan Jones", 463, true);
 renderLibrary();
 
 const modal = document.getElementById("modalContainer");
+const bookCreatorForm = document.getElementById("bookCreatorForm");
+const resetBooksDialog = document.getElementById("resetDialog");
 const openBookCreator = document.getElementById("openBookCreator");
-const modalCloseButton = document.getElementById("modalCloseButton");
+const modalCloseButtons = document.getElementsByClassName("modalCloseButton");
 const submitCreateBookButton = document.getElementById("submitCreateBook");
+const resetBooksButton = document.getElementById("resetBooksButton");
+const removeAllBooks = document.getElementById("removeAllBooks");
 
 openBookCreator.addEventListener("click", () => {
   modal.style.display = "flex";
+  bookCreatorForm.style.display = "flex";
 });
 
-modalCloseButton.addEventListener("click", () => {
-  modal.style.display = "none";
+resetBooksButton.addEventListener("click", () => {
+  modal.style.display = "flex";
+  resetBooksDialog.style.display = "flex";
 });
+
+for (let button of modalCloseButtons) { button.addEventListener("click", () => {
+  modal.style.display = "none";
+  bookCreatorForm.style.display = "none";
+  resetBooksDialog.style.display = "none";
+})};
 
 window.addEventListener("click", (e) => {
   if (e.target == modal) {
     modal.style.display = "none";
+    bookCreatorForm.style.display = "none";
   }
 });
 
 submitCreateBookButton.addEventListener("click", createBookFromForm);
+
+removeAllBooks.addEventListener("click", () => {
+  myLibrary = {};
+  renderLibrary();
+  modal.style.display = "none";
+  resetBooksDialog.style.display = "none";
+});

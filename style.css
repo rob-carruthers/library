@@ -44,8 +44,8 @@ body {
     height: 100%;
 }
 
-#bookCreatorForm {
-    display: flex;
+.modalDialog {
+    display: none;
     flex-direction: column;
     background-color: #94a3b8;
     border: 2px solid #1e293b;
@@ -55,7 +55,7 @@ body {
     font-size: 1.1rem;
 }
 
-#bookCreatorForm .iconify {
+.modalCloseButton {
     justify-self: flex-end;
     cursor: pointer;
 }
@@ -74,7 +74,7 @@ body {
     margin: 10px 0;
 }
 
-#bookCreatorTitle {
+.modalTitle {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -82,7 +82,7 @@ body {
     padding-top: 0;
 }
 
-#bookCreatorTitle .titleText {
+.modalTitle .titleText {
     color: #f8fafc;
 }
 
@@ -133,3 +133,6 @@ body {
     cursor: pointer;
 }
 
+#resetDialog {
+    display: none;
+}
