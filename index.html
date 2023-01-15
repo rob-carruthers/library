@@ -20,16 +20,19 @@
             <ul>
                 <li>
                     <label for="newBookTitle">Title:</label>
-                    <input name="newBookTitle" id="newBookTitle">
+                    <input name="newBookTitle" id="newBookTitle" minlength="1" required />
                 </li>
+                <div class="modalError" id="newBookTitleError"></div>
                 <li>
                     <label for="newBookAuthor">Author:</label>
-                    <input name="newBookAuthor" id="newBookAuthor">
+                    <input name="newBookAuthor" id="newBookAuthor" minlength="1" required />
                 </li>
+                <div class="modalError" id="newBookAuthorError"></div>
                 <li>
                     <label for="newBookPages">Pages:</label>
-                    <input name="newBookPages" id="newBookPages">
+                    <input name="newBookPages" id="newBookPages" type="number" min="1" required />
                 </li>
+                <div class="modalError" id="newBookPagesError"></div>
                 <li>
                     <label for="newBookIsRead">Read?</label>
                     <input name="newBookIsRead" id="newBookIsRead" type="checkbox" />

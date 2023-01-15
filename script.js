@@ -81,27 +81,54 @@ function createBookFromForm(e) {
   let newBookAuthor = undefined;
   let newBookPages = undefined;
   let newBookIsRead = undefined;
+  let validInput = true;
 
   for (let i = 0; i < numFields; i++) {
     switch (form[i].id) {
       case "newBookTitle":
-        newBookTitle = form[i].value;
+        if (!form[i].checkValidity()) {
+          document.getElementById("newBookTitleError").textContent = "Please enter a valid title."
+          validInput = false;
+          console.log(form[i])
+        } 
+        else { 
+          newBookTitle = form[i].value; 
+          document.getElementById("newBookTitleError").textContent = ""
+        }
         break;
       case "newBookAuthor":
-        newBookAuthor = form[i].value;
+        if (!form[i].checkValidity()) {
+          document.getElementById("newBookAuthorError").textContent = "Please enter a valid author."
+          validInput = false;
+          console.log(form[i])
+        } 
+        else { 
+          newBookAuthor = form[i].value; 
+          document.getElementById("newBookAuthorError").textContent = ""
+        }
         break;
       case "newBookPages":
-        newBookPages = form[i].value;
+        if (!form[i].checkValidity()) {
+          document.getElementById("newBookPagesError").textContent = "Number of pages must be at least 1."
+          validInput = false;
+          console.log(form[i])
+        } 
+        else { 
+          newBookPages = form[i].value; 
+          document.getElementById("newBookPagesError").textContent = ""
+        }
         break;
       case "newBookIsRead":
-        newBookIsRead = form[i].checked;
+        newBookIsRead = form[i].value;
         break;
     }
   }
 
-  addBookToLibrary(newBookTitle, newBookAuthor, newBookPages, newBookIsRead);
-  modal.style.display = "none";
-  renderLibrary();
+  if (validInput) {
+    addBookToLibrary(newBookTitle, newBookAuthor, newBookPages, newBookIsRead);
+    modal.style.display = "none";
+    renderLibrary();
+  }
 }
 
 addBookToLibrary("Hi", "John Smith", 133, false);
