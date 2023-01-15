@@ -14,7 +14,7 @@
     <div id="modalContainer">
         <form name="bookCreatorForm" id="bookCreatorForm">
             <div id="bookCreatorTitle">
-                <p>Create Book</p>
+                <p class="titleText">Create Book</p>
                 <p id="modalCloseButton"><span class="iconify" data-icon="mdi-close-thick" height="32px"></span></p>
             </div>
             <ul>
@@ -34,8 +34,10 @@
                 </li>
                 <div class="modalError" id="newBookPagesError"></div>
                 <li>
+                    <p>
                     <label for="newBookIsRead">Read?</label>
                     <input name="newBookIsRead" id="newBookIsRead" type="checkbox" />
+                    </p>
                 </li>
             </ul>
             <button id="submitCreateBook">Create</button>

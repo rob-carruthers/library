@@ -47,9 +47,12 @@ body {
 #bookCreatorForm {
     display: flex;
     flex-direction: column;
-    background-color: aquamarine;
+    background-color: #94a3b8;
+    border: 2px solid #1e293b;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.568);
     border-radius: 10px;
     padding: 10px;
+    font-size: 1.1rem;
 }
 
 #bookCreatorForm .iconify {
@@ -57,16 +60,30 @@ body {
     cursor: pointer;
 }
 
+#bookCreatorForm ul {
+    align-self: flex-start;
+    padding-left: 0
+}
+
 #bookCreatorForm li {
-    display: flex;
+    display: grid;
+    grid-template-columns: 80px 250px;
+    grid-row: 1;
     gap: 10px;
     list-style: none;
+    margin: 10px 0;
 }
 
 #bookCreatorTitle {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 2em;
+    padding-top: 0;
+}
+
+#bookCreatorTitle .titleText {
+    color: #f8fafc;
 }
 
 #bookContainer {
