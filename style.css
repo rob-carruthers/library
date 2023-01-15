@@ -122,15 +122,19 @@ body {
     font-size: 1.2em;
 }
 
-.bookCard .deleteButton {
+.bookCard .actionButtons {
+    display: flex;
     margin-top: auto;
     align-self: flex-end;
     justify-self: flex-end;
 }
 
+.bookCard .iconify {
+    cursor: pointer;
+}
+
 .bookCard .deleteButton .iconify {
     color: red;
-    cursor: pointer;
 }
 
 #resetDialog {

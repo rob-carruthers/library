@@ -40,28 +40,39 @@ function renderLibrary() {
     const authorDiv = document.createElement("div");
     const pagesDiv = document.createElement("div");
     const isReadDiv = document.createElement("div");
+    const actionButtons = document.createElement("div");
+    const readButton = document.createElement("div");
     const deleteButton = document.createElement("div");
+
+    actionButtons.appendChild(readButton);
+    actionButtons.appendChild(deleteButton);
 
     titleDiv.classList = "title";
     authorDiv.classList = "author";
     pagesDiv.classList = "pages";
     isReadDiv.classList = "isRead";
+    actionButtons.classList = "actionButtons";
     deleteButton.classList = "deleteButton";
+    readButton.classList = "readButton";
 
     bookCard.appendChild(titleDiv);
     bookCard.appendChild(authorDiv);
     bookCard.appendChild(pagesDiv);
     bookCard.appendChild(isReadDiv);
-    bookCard.appendChild(deleteButton);
+    bookCard.appendChild(actionButtons);
 
     titleDiv.innerHTML = "<p>" + book.title + "</p>";
     authorDiv.innerHTML = "<p>" + book.author + "</p>";
     pagesDiv.innerHTML = "<p>" + book.pages + " pages</p>";
+    readButton.innerHTML = '<p id=read-' + book.index + '"><span class="iconify" data-icon="mdi-book-open" height="32px"></p>';
     if (book.isRead) {
       isReadDiv.innerHTML = "<p>Already read</p>";
+      readButton.style = "color: green;"
     } else {
       isReadDiv.innerHTML = "<p>Not read yet</p>";
+      readButton.style = "color: gray;"
     }
+
     deleteButton.innerHTML =
       '<p id="button-' + book.index + '"><span class="iconify" data-icon="mdi-close-thick" height="32px"></p>';
 
@@ -70,6 +81,22 @@ function renderLibrary() {
       delete myLibrary[id];
       renderLibrary();
     })
+
+    readButton.addEventListener("click", (e) => {
+      const id = e.target.closest(".bookCard").id;
+      const book = myLibrary[id];
+
+      if (book.isRead) {
+        book.isRead = false;
+        e.target.style = "color: gray;"
+      }
+      else {
+        book.isRead = true;
+        e.target.style = "color: green;"
+      }
+
+      renderLibrary();
+    });
   });
 }
 
